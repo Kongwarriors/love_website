@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dòng Thời Gian Tình Yêu</title>
+  <link rel="stylesheet" href="../css/timeline.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+  />
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" 
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <h1 class="title" data-aos="fade-down">Dòng Thời Gian Tình Yêu</h1>
+  <div class="timeline-content">
+    <div class="event" data-aos="fade-right" data-aos-duration="800">
+      <div class="date">Hãy click vào dòng bên dưới nhé</div>
+      <div class="content" onclick="showContent(this)">
+        <span class="text">Lần đầu nói chuyện với em thực sự là rất vui. Có rất nhiều điều anh muốn được nghe em kể</span>
+      </div>
+    </div>
+  
+    <div class="event" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+      <div class="date">Hãy click vào dòng bên dưới nhé</div>
+      <div class="content" onclick="showContent(this)">
+        <span class="text">Em đã mang đến nhiều niềm vui cho năm mới của anh.</span>
+      </div>
+    </div>
+  
+    <div class="event" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+      <div class="date">Hãy click vào dòng bên dưới nhé</div>
+      <div class="content" onclick="showContent(this)">
+        <span class="text">Hãy kéo xuống tận cuối để thấy điều bất ngờ nhé</span>
+      </div>
+    </div>
+  
+    <div class="final" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+      <h2>Em có đồng ý ở bên anh mãi không?</h2>
+      <div class="button-container">
+        <div class="heart-b utton-container">
+          <button class="heart-button" id="yes" onclick="heartClick()">Có</button>
+        </div>
+        <div class="heart-button-container">
+          <button class="heart-button" id="no" onclick="heartClick()">Không</button>
+        </div>
+      </div>
+      </div>
+    <div id="fireworks-container"></div>
+  </div>  
+  <audio src="../sound/CanonInD-JohannPachelbel_3mrw2.mp3" autoplay id="myAudio"></audio>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="../js/timeline.js"></script>
+</body>
+</html>

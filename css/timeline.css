@@ -1,0 +1,249 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fce4ec; /* Màu nền nhẹ nhàng */
+    color: #333;
+    overflow-x: hidden;
+  }
+
+/* Tiêu đề */
+.title {
+    font-family: 'Dancing Script', cursive; /* Font Dancing Script */
+    font-size: 5rem; /* Kích thước chữ lớn */
+    font-weight: 1000; /* Phiên bản đậm của font */
+    color: transparent;
+    background: linear-gradient(90deg, #FF5678, #FF8EA3); /* Hiệu ứng gradient màu hồng */
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Bóng mờ nhẹ */
+    text-align: center; /* Căn giữa chữ */
+    margin: 20px 0; /* Khoảng cách trên dưới */
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FF5678;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.1rem;
+}
+
+/* Điều chỉnh vị trí timeline trên bố cục  */
+.timeline-content{
+    padding: 3% 10% 3% 10%;
+}
+  
+/* Khung event chung */
+.event {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #e91e63;
+    padding-left: 20px;
+    position: relative;
+}
+
+/* Tiêu đề của từng event (ngày tháng) */
+.date{
+    font-size: 1.2rem;
+    color: #FF5678;
+    font-weight: bold;
+    margin-bottom: 20px; /* Tăng khoảng cách với nội dung */
+    display: inline-block; /* Đảm bảo khoảng cách chỉ ảnh hưởng tới dòng này */
+}
+
+/* Evetn + date */
+.event .date {
+    font-weight: bold;
+    color: #e91e63;
+}
+
+.event .content {
+    background: #ffe4e1;
+    height: inherit;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: #e91e63;
+    border-radius: 50%;
+    position: absolute;
+    left: -9px;
+    top: 10px;
+}
+
+
+/* lời muốn nói  */
+.content {
+    background: #FFF6F8;
+    border-radius: 10px;
+    height: 60px; /* Chiều cao cố định ban đầu */
+    padding: 15px;
+    overflow: visible; /* Ẩn phần nội dung tràn */
+    cursor: pointer; /* Con trỏ thay đổi khi hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: height 0.5s ease; /* Hiệu ứng mượt khi thay đổi chiều cao */
+}
+
+/* Nội dung hiển thị */
+.text {
+    display: inline-block;
+    white-space: nowrap; /* Đảm bảo text xuống dòng */
+    word-wrap: break-word; /* Đảm bảo text xuống dòng khi cần */
+    overflow: hidden; /* Giới hạn chiều rộng khi hiệu ứng chưa hoàn tất */
+    border-right: 3px solid; /* Con trỏ nhấp nháy */
+    font-family: monospace; /* Font chữ có chiều rộng ký tự cố định */
+    font-size: 1.5em; /* Kích thước chữ */
+    width: 0; /* Bắt đầu từ chiều rộng 0 */
+    transition: none; /* Animation được thêm qua JS */
+}
+
+.text.active {
+    width: 22ch;
+}
+
+.text.active {
+    opacity: 1;
+}
+
+/* Phần nút bấm + câu hỏi*/
+.final {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.final button {
+    width: 120px;
+    height: 40px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    background-color: #e91e63;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Nút bấm */
+.button-container{
+    display: flex;
+    justify-content: center;
+}
+
+.heart-button {
+    background: linear-gradient(135deg, #FF5678, #FF8EA3);
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+.heart-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+  
+
+/* Tạo hiệu ứng type message */
+@keyframes typing {
+    from {
+      width: 0
+    }
+    to{
+        width: 100%
+    }
+  }
+      
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+
+/* Tạo hiệu ứng pháo hoa */
+#fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 20%;
+    pointer-events: none; /* Để không chặn sự kiện click */
+  }
+  
+  .firework {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #FF5678, #FFD700);
+    animation: explode 1.5s ease-out forwards; /* Thời gian dài hơn */
+  }
+  
+  @keyframes explode {
+    0% {
+      transform: scale(0.5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1); /* Tăng kích thước nổ */
+      opacity: 0;
+    }
+  }
+  
+
+/*Tạo hiệu ứng trái tim khi di chuyển chuột*/
+#heart-move{
+    position: absolute;
+    pointer-events: none;
+    filter: drop-shadow(0 0 15px rgba(219, 146, 207, 0.5));
+    animation: fateInOut 1s linear infinite;
+}
+
+@keyframes fateInOut {
+    0%, 100%{
+        opacity: 0;
+    }
+    20%, 80%{
+        opacity: 1;
+    }
+}
+
+#heart-move::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url(../img/heart.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: moveShape 2s linear infinite;
+}
+
+@keyframes moveShape {
+    0%{
+        transform: translate(0) rotate(0deg);
+    }
+    20%{
+        transform: translate(90px) rotate(90deg);
+    }
+    60%{
+        transform: translate(180px) rotate(180deg);
+    }
+    80%{
+        transform: translate(270px) rotate(270deg);
+    }
+    100%{
+        transform: translate(360px) rotate(360deg);
+    }
+}
+
