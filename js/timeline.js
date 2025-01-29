@@ -1,6 +1,6 @@
 // Initialize AOS animations
 AOS.init();
-document.getElementById('myAudio').volume = 0.5;
+document.getElementById('myAudio').volume = 1;
 // Handle button clicks
 document.getElementById("yes").addEventListener("click", () => {
   alert("Anh biết ngay mà, nhanh lớn nhé nàng! Daisuki desu ❤️");
